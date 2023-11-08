@@ -73,7 +73,6 @@ html {
   background-color: var(--black);
   color: var(--white);
   font-family: "Bricolage Grotesque", sans-serif;
-  background-image: url("./Meliuk-liuk.svg");
   background-position: right top;
   background-repeat: no-repeat;
 }
