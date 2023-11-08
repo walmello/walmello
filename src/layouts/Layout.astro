@@ -1,0 +1,102 @@
+---
+import Head from '../components/Head.astro';
+import Navigation from '../components/Navigation.astro';
+
+const title = "wm.design"
+const description = "Creative Developer and Designer"
+const keywords = `
+	design,
+	development,
+	creative,
+	freelancer,
+	website,
+	html,
+	css,
+	javascript,
+	webflow,
+	framer,
+	gsap,
+	react
+`
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <Head/>
+</head>
+<body x-data x-resize data-barba="wrapper">
+    <div id="cursor"></div>    
+	<Navigation/>
+	<img src="./favicon.png" alt="" srcset="">
+
+
+    <main data-barba="container" data-barba-namespace="home">
+        <header>
+            <h1>
+                <span>
+                    <span style="--i: 1">w</span>
+                    <span style="--i: 2">m</span>
+                </span>
+                <span class="color-red">
+                    <span style="--i: 3">.</span>
+                    <span style="--i: 4">d</span>
+                    <span style="--i: 5">e</span>
+                    <span style="--i: 6">s</span>
+                    <span style="--i: 7">i</span>
+                    <span style="--i: 8">g</span>
+                    <span style="--i: 9">n</span>
+                </span>
+            </h1>
+        </header>
+    
+        <section id="description">
+            <h2 class="">I’m a developer and designer who is on the edge of innovation when the subject is creating cool websites</h2>
+    
+            <div class="marquee">
+                <span>
+                    WebGL - Javascript - React - Webflow - Framer - Three JS -
+                </span>
+                <span>
+                    WebGL - Javascript - React - Webflow - Framer - Three JS -
+                </span>
+                <span>
+                    WebGL - Javascript - React - Webflow - Framer - Three JS -
+                </span>
+            </div>
+        </section>
+    
+        <section id="works">
+            <ul>
+                <li>
+                    EIKON LABS
+                    <img src="./assets/image 4.jpg" alt="">
+                </li>
+                <li>
+                    LOVE IGNITES PEACE
+                    <img src="./assets/image 4.jpg" alt="">
+                </li>
+                <li>
+                    SMARTMENTOR
+                    <img src="./assets/image 4.jpg" alt="">
+                </li>
+                <li>
+                    CIBERCAFÉ
+                    <img src="./assets/image 4.jpg" alt="">
+                </li>
+            </ul>
+        </section>
+        
+        <section id="stagger-test">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </section>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://unpkg.com/@barba/core"></script>
+    <script src="./scripts/main.js" type="module"></script>
+</body>
+</html>
