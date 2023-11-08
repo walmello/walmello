@@ -3,18 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Walter Melo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200;12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="./styles/main.css">
+    <script src="https://unpkg.com/split-type"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <title>wm.design</title>
 </head>
-<body>
+<body x-data x-resize>
+    <div id="cursor"></div>
+
+    <section>
+        <h1>Alpine testing</h1>
+        <p>X : 0</p>
+        <p>Y : 0</p>
+    </section>
+    
     <nav>
+        <div class="mask" style="--i:10">
+            <p>WALTER MELO</p>
+        </div>
+
+        <div>
+            <div class="mask" style="--i:12">
+                <span>
+                    CREATIVE DEVELOPER
+                </span>
+            </div>
+            <div class="mask" style="--i:13">
+                <span>
+                    FRONT END DESIGNER
+                </span>
+            </div>
+            <div class="mask" style="--i:14">
+                <span>
+                    UX/UI ENGINEER
+                </span>
+            </div>
+        </div>
+        <div></div>
         <ul>
-            <li>Home</li>
-            <li>About</li>
+            <li>
+                <div class="mask" style="--i:16">
+                    <div>
+                        <a href="#">WORK</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="mask" style="--i:16">
+                    <div>
+                        <a href="#">ABOUT</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="mask" style="--i:16">
+                    <p>
+                        <a href="#">CONTACT</a>
+                    </p>
+                </div>
+            </li>
         </ul>
     </nav>
     <header>
-        <h1>Walter Melo</h1>
-        <p>Sample Website</p>
+        <h1>
+            <span>
+                <span style="--i: 1">w</span>
+                <span style="--i: 2">m</span>
+            </span>
+            <span class="color-red">
+                <span style="--i: 3">.</span>
+                <span style="--i: 4">d</span>
+                <span style="--i: 5">e</span>
+                <span style="--i: 6">s</span>
+                <span style="--i: 7">i</span>
+                <span style="--i: 8">g</span>
+                <span style="--i: 9">n</span>
+            </span>
+        </h1>
     </header>
+
+    <section id="description">
+        <h2>I’m a developer and designer who is on the edge of innovation when the subject is creating cool websites</h2>
+
+        <div class="marquee">
+            <span>
+                WebGL - Javascript - React - Webflow - Framer - Three JS -
+            </span>
+            <span>
+                WebGL - Javascript - React - Webflow - Framer - Three JS -
+            </span>
+            <span>
+                WebGL - Javascript - React - Webflow - Framer - Three JS -
+            </span>
+        </div>
+    </section>
+
+    <section id="works">
+        <ul>
+            <li>
+                EIKON LABS
+                <img src="image 4.jpg" alt="">
+            </li>
+            <li>
+                LOVE IGNITES PEACE
+                <img src="image 4.jpg" alt="">
+            </li>
+            <li>
+                SMARTMENTOR
+                <img src="image 4.jpg" alt="">
+            </li>
+            <li>
+                CIBERCAFÉ
+                <img src="image 4.jpg" alt="">
+            </li>
+        </ul>
+    </section>
+    
+    <section id="stagger-test">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+    <script src="./scripts/main.js" type="module"></script>
 </body>
 </html>
