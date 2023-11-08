@@ -283,4 +283,8 @@ section .marquee span {
   border-radius: 100%;
   z-index: -1;
   pointer-events: none;
+}
+
+h2 {
+  font-variation-settings: "wght" 150;
 }/*# sourceMappingURL=main.css.map */
