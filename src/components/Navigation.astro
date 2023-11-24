@@ -76,11 +76,9 @@ import Logo from "./Logo.astro";
     menu.addEventListener('click', () => {
         if(active){
             tl.reverse()
-            document.body.style.overflow = 'hidden'
             active = false
         } else {
             tl.play()
-            document.body.style.overflow = 'visible'
             active = true
         }
     })
