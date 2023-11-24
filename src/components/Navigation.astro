@@ -141,8 +141,10 @@ import Logo from "./Logo.astro";
         flex-wrap: wrap;
         text-transform: uppercase;
         position: fixed;
-        width: 100vw;
+        width: 100%;
         z-index: 9999999999;
+        overflow: hidden;
+        gap: 2rem;
         
         div {
             display: flex;
@@ -170,6 +172,9 @@ import Logo from "./Logo.astro";
 
         nav {
             flex-wrap: nowrap;
+            height: 100vh;
+            justify-items: start;
+            align-items: start;
         }
 
         .menu {

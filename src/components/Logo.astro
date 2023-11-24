@@ -6,13 +6,14 @@ const { delay } = Astro.props
 
 <style>
     .logo {
-        font-size: calc(100vw / 4.8);
+        font-size: 21vw;
         text-align: center;            
         position: sticky;
         text-transform: lowercase;
         top: 5vh;
         text-wrap: nowrap;
-        
+        margin: 0;
+        padding: 0;
         
         .line {
             overflow: hidden;
@@ -31,6 +32,7 @@ const { delay } = Astro.props
     @media (max-width: 640px) {
         .logo {
             font-size: 2rem;
+            transform: translateY(-100%);
         }
     }
     
@@ -60,7 +62,20 @@ const { delay } = Astro.props
             ease: "none"
         }) 
     })
-
+    
+    window.onresize = () => {
+        mm.add("(min-width: 640px)", () => {
+            gsap.to('.logo', {
+                fontSize: '21vw'
+            })
+        })
+        mm.add("(max-width: 640px)", () => {
+            gsap.to('.logo', {
+                fontSize: '2rem'
+            })
+        })
+    }
+    
     Array.from(document.querySelectorAll('.logo .char')).forEach(item => {
         item.addEventListener('mouseenter', (e) => {
             gsap.to(item, {
@@ -79,8 +94,8 @@ const { delay } = Astro.props
             })
         })
         item.addEventListener('click', (e) => {
-
+            
         })
     })
-
+    
 </script>
