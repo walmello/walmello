@@ -1,12 +1,16 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import Hero from '../components/home/Hero.astro'
-import Subhero from '../components/home/Subhero.astro'
-import Works from '../components/home/Works.astro'
+import Layout from '../layouts/Layout.astro';
+import Subtitle from "../components/Subtitle.astro";
+import Works from "../components/Works.astro";
+import About from "../components/About.astro";
 
 ---
-<Layout title="Welcome to Astro.">
-	<Hero/>
-	<Subhero/>
+
+<Layout preload={true}>
+	<Subtitle/>
 	<Works/>
+	<About/>
 </Layout>
+
+<style>
+</style>

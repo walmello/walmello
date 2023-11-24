@@ -1,21 +1,106 @@
 ---
-import Head from '../components/Head.astro'
-import Navigation from '../components/Navigation.astro'
-import Scripts from '../components/Scripts.astro'
-import Cursor from '../components/Cursor.astro'
+
+import Canvas from "../components/Canvas.astro"
+import Cursor from "../components/Cursor.astro"
+import Preloader from "../components/Preloader.astro"
+import Navigation from "../components/Navigation.astro"
+import Header from "../components/Header.astro"
+import Footer from "../components/Footer.astro"
+
+const title = "wm.design"
+const description = "Creative Developer and Designer"
+const keywords = `
+design,
+development,
+creative,
+freelancer,
+website,
+html,
+css,
+javascript,
+webflow,
+framer,
+gsap,
+react
+`
+
+const { preload } = Astro.props
+
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <Head/>
+	<meta charset="UTF-8" />
+	<meta name="description" content={description} />
+	<meta name="keywords" content={keywords}>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link rel="icon" type="image/png" href="/favicon1.png?" />
+	<title>{title}</title>
 </head>
-<body x-data x-resize data-barba="wrapper">
-    <Cursor/>
-	<Navigation/>
-    <main data-barba="container" data-barba-namespace="home">
-        <slot/>
-    </main>
-    <Scripts/>
+<body>
+	{preload ? <Preloader/> : <></> }	
+	<Canvas/>
+	<Cursor/>
+	<Header/>
+	<main>
+		<slot/>
+	</main>
+	<Footer/>
 </body>
 </html>
+
+<script>
+	import Lenis from '@studio-freight/lenis'
+	const lenis = new Lenis()
+	
+	lenis.on('scroll', (e) => {
+	})
+	
+	function raf(time) {
+		lenis.raf(time)
+		requestAnimationFrame(raf)
+	}
+	
+	requestAnimationFrame(raf)
+</script>
+
+<style is:global>
+	@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200;12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap');
+	
+	:root {
+		--main-color: #D92848;
+		--white: #FDFBFE;
+		--black: #100817;
+		
+		--sm: 0.618rem;
+		--md: 1rem;
+		--lg: 1.618rem;
+		--xl: 2.618rem;
+		--xxl: 4.236rem;
+	}
+	
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	
+	html {
+		font-family: 'Bricolage Grotesque', sans-serif;
+		font-size: max(1vw, 16px);
+		background-color: var(--black);
+		color: var(--white);
+	}
+	
+	a {
+		color: var(--white);
+		text-decoration: none;
+	}
+	
+	strong, h1, h2, h3 {
+		font-weight: 500;
+	}
+	
+	
+</style>

@@ -1,0 +1,89 @@
+<section class="subtitle">
+    <div class="subtitle-area">
+        <p>I’m a developer and designer who likes to experiment with new technologies and build cool things with them.</p>
+    </div>
+</section>
+
+<script>
+    import {gsap} from 'gsap'
+    import SplitType from 'split-type'
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    gsap.registerPlugin(ScrollTrigger);
+    
+    new SplitType('.subtitle p')
+    
+    
+    gsap.to('.marquee', {
+        scrollTrigger: {
+            scrub: true,
+            pin: true,
+            start: 'top top',
+        },
+        xPercent: -100
+    })
+
+    
+    gsap.to('.subtitle .char', {
+        scrollTrigger: {
+            trigger: '.subtitle',
+            scrub: true,
+            start: 'top',
+            end: 'center'
+        },
+
+        opacity: 1,
+        stagger: 0.1,
+        color: 'var(--white)',
+        duration: 1
+    })
+    
+</script>
+
+<style is:global>
+    .subtitle .char {
+        opacity: 0.5;
+    }
+</style>
+
+<style>
+    section {
+        min-height: 300vh;
+        position: relative;
+    }
+
+    .marquee {
+        display: flex;
+        gap: 2rem;
+        position: sticky;
+        top: 80vh;
+        font-size: 7rem;
+        color: var(--main-color);
+        -webkit-text-stroke: 1px var(--main-color);
+                text-stroke: 1px var(--main-color);
+
+        z-index: -100;
+    }
+
+    .subtitle-area {
+        position: sticky;
+        top: 20vh;
+        height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    p {
+        font-size: 4vw;
+        max-width: 80vw;
+        -webkit-text-stroke: 1px var(--white);
+                text-stroke: 1px var(--white);
+        color: transparent;
+        text-align: center;
+    }
+    
+    div {
+        font-size: 2vw;
+    }
+</style>

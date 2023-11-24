@@ -1,0 +1,131 @@
+---
+
+const works = [
+{
+    title: "Eikon Labs",
+    img: "eikon.png",
+    link: "https://www.eikonlabs.com/",
+    tags: ['Webflow', 'CSS', 'Design']
+},
+{
+    title: "Love Ignites Peace",
+    img: "loveignites.jpg",
+    link: "https://www.loveignitespeace.com/",
+    tags: ['Webflow', 'Alpine', 'Javascript']
+},
+{
+    title: "Smartmentor",
+    img: "smartmentor.png",
+    link: "https://smartmentor.co/",
+    tags: ['Framer', 'UX Design', 'Web Design']
+},
+{
+    title: "Xtramath",
+    img: "xtramath.jpg",
+    link: "https://xtramath.webflow.io/",
+    tags: ['Webflow', 'Information Architecture', 'Javascript']
+}
+]
+
+---
+
+<style lang="scss">
+    ul {
+        position: sticky;
+        top: 10vh;
+        list-style: none;
+        max-width: 1200px;
+        margin: auto;
+        
+        li:nth-child(even) {
+            text-align: right;
+        }
+        
+        li {
+            position: relative;
+            display: flex;
+            
+            a {
+                font-size: 7vw;
+                font-weight: 800;
+                text-decoration: none;
+                text-transform: uppercase;
+                text-wrap: nowrap;
+                color: var(--black);
+                text-shadow:
+                -1px -1px 0 var(--white),  
+                1px -1px 0 var(--white),
+                -1px 1px 0 var(--white),
+                1px 1px 0 var(--white);
+            }
+            
+            &:hover {
+                a {
+                }
+                
+                img {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    
+    img {
+        width: 50vw;
+        position: absolute;
+        left: -20%;
+        top: -50%;
+        z-index: -99;
+        opacity: 0;
+    }
+    
+    section {
+        min-height: 400vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+</style>
+
+<style is:global lang="scss">
+    .work-item {
+        overflow: hidden;
+        .line {
+            opacity: 0;
+            transform: translateY(100%);
+        }
+    }
+</style>
+
+<script>
+    import { gsap } from 'gsap'
+    import SplitType from 'split-type'
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    gsap.registerPlugin(ScrollTrigger);
+    
+    new SplitType('.work-item')
+    
+    gsap.to('.work-item .line', {
+        y: 0,
+        opacity: 1,
+        stagger: 0.2,
+        duration: 1
+    })
+    
+    document.onmousemove = e => {
+        gsap.to('.work-img', {
+            x: e.clientX / 10,
+            y: e.clientY / 10,
+        })
+    }
+    
+    
+</script>
+
+<section id="work">
+    <ul>
+    </ul>
+</section>
+    
+    

@@ -1,0 +1,45 @@
+---
+const skills = ['Webflow', "Framer", "GSAP", "ThreeJS", "Javascript", "React", "HTML", "CSS", "Figma"]
+---
+
+<div class="marquee">
+    {skills.join(' - ')}
+</div>
+
+<script>
+    import {gsap} from 'gsap'
+    import SplitType from 'split-type'
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    gsap.registerPlugin(ScrollTrigger);
+    
+    new SplitType('.subtitle p')    
+    
+    gsap.to('.marquee', {
+        scrollTrigger: {
+            scrub: true,
+            pin: true,
+            start: 'top top',
+        },
+        xPercent: -100
+    })
+
+</script>
+
+<style>
+    .marquee {
+        display: flex;
+        gap: 2rem;
+        position: sticky;
+        top: 80vh;
+        font-size: 7rem;
+        color: var(--black);
+        text-shadow:
+            -1px -1px 0 var(--main-color),  
+            1px -1px 0 var(--main-color),
+            -1px 1px 0 var(--main-color),
+            1px 1px 0 var(--main-color);
+
+        z-index: -100;
+        text-wrap: nowrap;
+    }
+</style>

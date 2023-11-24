@@ -1,0 +1,63 @@
+---
+const { delay } = Astro.props
+---
+
+<h1 class="logo">wm<span class="tx-red">.design</span></h1>
+
+<style>
+    .logo {
+        font-size: calc(100vw / 4.8);
+        text-align: center;            
+        position: sticky;
+        text-transform: lowercase;
+        top: 5vh;
+        text-wrap: nowrap;
+        
+        
+        .line {
+            overflow: hidden;
+        }
+        
+        .char {
+            opacity: 0;
+            transform: translateY(100%);
+        }
+        
+        .tx-red {
+            color: var(--main-color);
+        }
+    }
+    
+    @media (max-width: 640px) {
+        .logo {
+            font-size: calc(100vw / 8);
+        }
+    }
+    
+</style>
+
+<script>
+    import SplitType from 'split-type'
+    import { gsap } from 'gsap'
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    gsap.registerPlugin(ScrollTrigger);
+    
+    let mm = gsap.matchMedia();
+    
+    
+    const text = new SplitType('.logo')
+    
+    const tl = gsap.timeline()
+    
+    mm.add("(min-width: 640px)", () => {
+        gsap.to('.logo', {
+            scrollTrigger: {
+                scrub: true,
+                start: 'center',
+                trigger: 'header'
+            },        
+            fontSize: '3vw',
+            ease: "none"
+        }) 
+    })
+</script>

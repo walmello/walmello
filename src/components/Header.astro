@@ -1,0 +1,23 @@
+---
+import Navigation from "./Navigation.astro";
+import Marquee from "./Marquee.astro";
+const {delay} = Astro.props
+---
+
+<header>
+    <Navigation/>
+    <Marquee/>
+</header>
+
+
+
+<style lang="scss">
+    header {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        min-height: 200vh;
+        position: relative;
+    }
+</style>
