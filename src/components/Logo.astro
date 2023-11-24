@@ -60,4 +60,27 @@ const { delay } = Astro.props
             ease: "none"
         }) 
     })
+
+    Array.from(document.querySelectorAll('.logo .char')).forEach(item => {
+        item.addEventListener('mouseenter', (e) => {
+            gsap.to(item, {
+                yPercent: -10,
+                scaleY: 1.5,
+                transformOrigin: 'bottom',
+                duration: 0.2
+            })
+        })
+        item.addEventListener('mouseleave', (e) => {
+            gsap.to(item, {
+                yPercent: 0,
+                scale: 1,
+                skewY: 0,
+                skewX: 0
+            })
+        })
+        item.addEventListener('click', (e) => {
+
+        })
+    })
+
 </script>

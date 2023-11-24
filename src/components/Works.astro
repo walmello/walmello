@@ -29,72 +29,96 @@ const works = [
 
 ---
 
-<style lang="scss">
-    ul {
-        position: sticky;
-        top: 10vh;
-        list-style: none;
-        max-width: 1200px;
-        margin: auto;
-        
-        li:nth-child(even) {
-            text-align: right;
-        }
-        
-        li {
-            position: relative;
-            display: flex;
-            
-            a {
-                font-size: 7vw;
-                font-weight: 800;
-                text-decoration: none;
-                text-transform: uppercase;
-                text-wrap: nowrap;
-                color: var(--black);
-                text-shadow:
-                -1px -1px 0 var(--white),  
-                1px -1px 0 var(--white),
-                -1px 1px 0 var(--white),
-                1px 1px 0 var(--white);
-            }
-            
-            &:hover {
-                a {
-                }
-                
-                img {
-                    opacity: 1;
-                }
-            }
-        }
-    }
-    
-    img {
-        width: 50vw;
-        position: absolute;
-        left: -20%;
-        top: -50%;
-        z-index: -99;
-        opacity: 0;
-    }
-    
-    section {
-        min-height: 400vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-    }
-</style>
+<section id="work">
+    <h2 class="flipped-header">WORK - WORK - WORK - WORK - WORK - WORK - </h2>
+    <div class="works">
+        <div class="work-item">
+            <img src="./screenshots/eikon.png" alt="">
+            <h3>Eikon Labs</h3>
+            <div class="tags">
+                <span>Webflow</span>
+                <span>Design</span>
+                <span>Javascript</span>
+            </div>        
+        </div>
+        <div class="work-item">
+            <img src="./screenshots/eikon.png" alt="">
+            <h3>Eikon Labs</h3>
+            <div class="tags">
+                <span>Webflow</span>
+                <span>Design</span>
+                <span>Javascript</span>
+            </div>        
+        </div>
+        <div class="work-item">
+            <img src="./screenshots/eikon.png" alt="">
+            <h3>Eikon Labs</h3>
+            <div class="tags">
+                <span>Webflow</span>
+                <span>Design</span>
+                <span>Javascript</span>
+            </div>        
+        </div>
+        <div class="work-item">
+            <img src="./screenshots/eikon.png" alt="">
+            <h3>Eikon Labs</h3>
+            <div class="tags">
+                <span>Webflow</span>
+                <span>Design</span>
+                <span>Javascript</span>
+            </div>        
+        </div>
+    </div>
+</section>
 
-<style is:global lang="scss">
-    .work-item {
-        overflow: hidden;
-        .line {
-            opacity: 0;
-            transform: translateY(100%);
-        }
+<style lang="scss">
+
+
+    .flipped-header {
+        writing-mode: vertical-lr;
+        font-size: max(10vw, 3rem);
+        text-wrap: nowrap;
+        font-weight: 700;
+        color: var(--black);
+        text-shadow:
+            -1px -1px 0 var(--white),  
+            1px -1px 0 var(--white),
+            -1px 1px 0 var(--white),
+            1px 1px 0 var(--white);
+
+    }
+
+    .works {
+        display: flex;
+        height: 100vh;
+        position: sticky;
+        align-items: center;
+        top: 0;
+        gap: 10vw;
+        transform: translateX(30vw);
+    }
+
+    .tags {
+        color: var(--main-color);
+        display: flex;
+        gap: 2rem;
+        text-transform: uppercase;
+    }
+
+    img {
+        width: 40vw;
+    }
+
+    h3 {
+        font-size: 4vw;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+
+    #work {
+        max-width: 80vw;
+        margin: auto;
+        display: flex;
     }
 </style>
 
@@ -102,30 +126,20 @@ const works = [
     import { gsap } from 'gsap'
     import SplitType from 'split-type'
     import { ScrollTrigger } from "gsap/ScrollTrigger";
-    gsap.registerPlugin(ScrollTrigger);
-    
-    new SplitType('.work-item')
-    
-    gsap.to('.work-item .line', {
-        y: 0,
-        opacity: 1,
-        stagger: 0.2,
-        duration: 1
+    gsap.registerPlugin(ScrollTrigger);   
+
+    const tl = gsap.timeline()
+
+    tl.to('.works', {
+        scrollTrigger: {
+            trigger: '#work',
+            scrub: true,
+            start: 'top'
+        },
+        xPercent: -100
     })
-    
-    document.onmousemove = e => {
-        gsap.to('.work-img', {
-            x: e.clientX / 10,
-            y: e.clientY / 10,
-        })
-    }
-    
-    
+
 </script>
 
-<section id="work">
-    <ul>
-    </ul>
-</section>
     
     

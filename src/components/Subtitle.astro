@@ -1,6 +1,7 @@
 <section class="subtitle">
     <div class="subtitle-area">
         <p>I’m a developer and designer who likes to experiment with new technologies and build cool things with them.</p>
+        <div class="red-circle"></div>
     </div>
 </section>
 
@@ -36,7 +37,46 @@
         color: 'var(--white)',
         duration: 1
     })
-    
+
+    const tl = gsap.timeline()
+
+    tl.to('.subtitle .red-circle', {
+        scrollTrigger: {
+            trigger: '.subtitle',
+            scrub: true,
+            start: 'top',
+            end: 'bottom'
+        },
+
+        opacity: 1,
+        scale: 300
+    }).to('.subtitle p', {
+        scrollTrigger: {
+            trigger: '.subtitle',
+            scrub: true,
+            start: 'center',
+            end: 'bottom'
+        },
+        scale: 10
+    }).to('.subtitle', {
+        scrollTrigger: {
+            trigger: '.subtitle',
+            scrub: true,
+            start: 'center',
+            end: 'bottom'
+        },
+        opacity: 0
+    })
+
+
+    window.addEventListener('mousemove', e => {
+        tl.to('.subtitle .red-circle', {
+            xPercent: e.clientX - window.innerHeight,
+            yPercent: e.clientY
+        })
+    })
+
+
 </script>
 
 <style is:global>
@@ -49,6 +89,16 @@
     section {
         min-height: 300vh;
         position: relative;
+    }
+
+    .red-circle {
+        background-color: var(--main-color);
+        width: 1rem;
+        height: 1rem;
+        border-radius: 100%;
+        position: absolute;
+        z-index: -999;
+        transform: scale(0.01);
     }
 
     .marquee {

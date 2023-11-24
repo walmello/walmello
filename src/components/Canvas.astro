@@ -1,10 +1,29 @@
 <canvas id="canvas-bg"></canvas>
 
-<script>
+<script is:inline>
     const canvas = document.querySelector('#canvas-bg')
     const ctx = canvas.getContext("2d")
-
     const mainColor = "#D92848"
+
+    ctx.canvas.width  = window.innerWidth;
+    ctx.canvas.height = window.innerHeight;
+
+
+    window.addEventListener('mousemove', e => {
+        const x = e.clientX
+        const y = e.clientY
+
+    })
+
+    function draw(){
+        ctx.beginPath();
+        ctx.arc(x, y, 100, 0, 2 * Math.PI);
+        ctx.fillStyle = 'white';
+        ctx.fill();
+
+        requestAnimationFrame(() =>draw ())
+    }
+    draw()
 
 </script>
 
@@ -14,6 +33,6 @@
         height: 100vh;
         position: fixed;
         z-index: -999999;
-        opacity: 0.5;
+        opacity: 1;
     }
 </style>
