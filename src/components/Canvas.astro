@@ -4,27 +4,83 @@
     const canvas = document.querySelector('#canvas-bg')
     const ctx = canvas.getContext("2d")
     const mainColor = "#D92848"
-
+    
     ctx.canvas.width  = window.innerWidth;
     ctx.canvas.height = window.innerHeight;
-
-
-    window.addEventListener('mousemove', e => {
-        const x = e.clientX
-        const y = e.clientY
-
+    
+    let particles = [
+    
+    ]
+    
+    let x = 0
+    let y = 0
+    
+    function createCircle(x, y, opacity, size, color){
+        ctx.globalAlpha = opacity
+        ctx.beginPath();
+        if(size < 0) size = 0
+        ctx.arc(x, y, size, 0, 2 * Math.PI);
+        ctx.fillStyle = color;
+        ctx.fill();
+    }
+    
+    window.addEventListener('mousemove', (e) => {
+        
+        for (let index = 0; index < 1; index++) {
+            particles.push({
+                x: e.clientX,
+                y: e.clientY,
+                velocityX: (Math.random() * 2) - 1,
+                velocityY: (Math.random() * 2) - 1,
+                opacity: 0.5,
+                decay: 0.001,
+                size: (Math.random() * 5) + 3,
+                active: true,
+                color: [mainColor, 'white'][parseInt(Math.random() * 2)]
+            })            
+        }
+        
+        //console.log('clicked')
     })
 
-    function draw(){
-        ctx.beginPath();
-        ctx.arc(x, y, 100, 0, 2 * Math.PI);
-        ctx.fillStyle = 'white';
-        ctx.fill();
+    window.addEventListener('click', (e) => {
+        
+        for (let index = 0; index < 12; index++) {
+            particles.push({
+                x: e.clientX,
+                y: e.clientY,
+                velocityX: (Math.random() * 5) - 3,
+                velocityY: (Math.random() * 5) - 3,
+                opacity: 1,
+                decay: 0.001,
+                size: (Math.random() * 10) + 5,
+                active: true,
+                color: [mainColor, 'white'][parseInt(Math.random() * 2)]
+            })            
+        }
+        
+        //console.log('clicked')
+    })
+    
 
+    function draw(){
+        ctx.clearRect(0, 0, canvas.width, canvas.height);        
+        particles = particles.filter(particle => {
+            return particle.opacity > 0 || particle.size > 0 
+        })
+        
+        particles.forEach(particle => {
+            particle.x += particle.velocityX
+            particle.y += particle.velocityY - 1
+            particle.opacity -= particle.decay
+            particle.size -= particle.decay * 100
+            
+            createCircle(particle.x, particle.y, particle.opacity, particle.size, particle.color)            
+        })
         requestAnimationFrame(() =>draw ())
     }
     draw()
-
+    
 </script>
 
 <style>
@@ -34,5 +90,6 @@
         position: fixed;
         z-index: -999999;
         opacity: 1;
+        pointer-events: none;
     }
 </style>

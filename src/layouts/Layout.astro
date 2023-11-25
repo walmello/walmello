@@ -69,7 +69,7 @@ const { preload } = Astro.props
 	@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200;12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap');
 	
 	:root {
-		--main-color: #D92858;
+		--main-color: #D92848;
 		--white: #FDFBFE;
 		--black: #100817;
 		
@@ -91,7 +91,14 @@ const { preload } = Astro.props
 		font-size: max(1vw, 16px);
 		background-color: var(--black);
 		color: var(--white);
+	}
+
+	body {
 		overflow-x: hidden;
+
+		> * {
+			overflow: visible;
+		}
 	}
 	
 	a {

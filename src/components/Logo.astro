@@ -91,8 +91,8 @@ const { delay } = Astro.props
     Array.from(document.querySelectorAll('.logo .char')).forEach(item => {
         item.addEventListener('mouseenter', (e) => {
             gsap.to(item, {
-                yPercent: -10,
-                scaleY: 1.5,
+                yPercent: -3,
+                scaleY: 1.2,
                 transformOrigin: 'bottom',
                 duration: 0.2
             })
