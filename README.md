@@ -1,5 +1,5 @@
 
-![](./wm.design.svg "a title")
+![](./wm-design.svg "a title")
 
 # Hi, I'm <br> <span>Walter Melo</span> <span class="hand">&#128075;</span> </h2>        
 
