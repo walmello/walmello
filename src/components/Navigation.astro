@@ -48,31 +48,43 @@ import Logo from "./Logo.astro";
 <script>
     import { gsap } from 'gsap'
     import SplitType from 'split-type'
-
+    
     new SplitType('.menu-items .mask li a')
-
+    
     const tl = gsap.timeline({paused: true, duration: 0.2})
     tl.to('.menu', {gap: 0, duration: 0.2})
-        .to('.menu > *', {position: 'absolute'})
-        .to('.menu .line-1', {rotate: '45deg'}, '<')
-        .to('.menu .line-2', {opacity: '0', width: '0'}, '<')
-        .to('.menu .line-3', {rotate: '-45deg'}, '<')
-        .to('.menu .ball', {scale: 50, opacity: 1}, '<')
-        .to('.menu-items', {x: 0, ease: "back.out(1.7)"}, '<')
-        .to('.menu-items .mask', {
-            x: 0, 
-            ease: "back.out(1.7)",
-            stagger: 0.2
-        }, '<')
-        .to('.menu-items .char', {
-            y: 0, 
-            stagger: 0.05,
-            //duration: 0.1
-        }, '<')
-   
+    .to('.menu > *', {position: 'absolute'})
+    .to('.menu .line-1', {rotate: '45deg'}, '<')
+    .to('.menu .line-2', {opacity: '0', width: '0'}, '<')
+    .to('.menu .line-3', {rotate: '-45deg'}, '<')
+    .to('.menu .ball', {scale: 50, opacity: 1}, '<')
+    .to('.menu-items', {x: 0, ease: "back.out(1.7)"}, '<')
+    .to('.menu-items .mask', {
+        x: 0, 
+        ease: "back.out(1.7)",
+        stagger: 0.2
+    }, '<')
+    .to('.menu-items .char', {
+        y: 0, 
+        stagger: 0.05,
+        //duration: 0.1
+    }, '<')
+    
     const menu = document.querySelector('.menu')
     let active = false
-
+    
+    Array.from(document.querySelectorAll('.menu-items a')).forEach(item => {
+        item.addEventListener('click', () => {
+            if(active){
+                tl.reverse()
+                active = false
+            } else {
+                tl.play()
+                active = true
+            }
+        })        
+    })
+    
     menu.addEventListener('click', () => {
         if(active){
             tl.reverse()
@@ -94,12 +106,12 @@ import Logo from "./Logo.astro";
 <style lang="scss">    
     .mask {
         overflow: hidden;
-
+        
         > * {
             transform: translateY(100%);
         }
     }
-
+    
     .menu {
         width: 2rem;
         height: 2rem;
@@ -112,7 +124,7 @@ import Logo from "./Logo.astro";
         align-content: center;
         z-index: 9999;
         cursor: pointer;
-
+        
         .ball {
             background-color: var(--main-color);
             width: 12vw;
@@ -122,7 +134,7 @@ import Logo from "./Logo.astro";
             z-index: -999999;
             opacity: 0;
         }
-
+        
         > * {
             background-color: var(--white);
             height: 2px;
@@ -154,31 +166,31 @@ import Logo from "./Logo.astro";
             gap: 1rem;
         }
     }
-
+    
     @media (min-width: 640px) {
         .menu {
             display: none !important;
         }
-
+        
         .menu-items {
             display: flex;
         }
     }
-
+    
     @media (max-width: 640px) {
         nav {
             flex-wrap: nowrap;
             justify-items: start;
             align-items: center;
         }
-
+        
         .menu {
         }
-
+        
         .hide-mobile {
             display: none !important;
         }
-
+        
         .menu-items {
             flex-direction: column;
             font-size: 16vw;
@@ -194,12 +206,12 @@ import Logo from "./Logo.astro";
             z-index: 9999;
             pointer-events: none;
         }
-
+        
         .menu-items .mask {
             border-bottom: 1px solid var(--white);
             transform: translateX(150%);
         }
-
+        
         .menu-items .mask li{
             transform: translateY(0);
             text-align: left;

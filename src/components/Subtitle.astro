@@ -11,7 +11,7 @@
     import { ScrollTrigger } from "gsap/ScrollTrigger";
     gsap.registerPlugin(ScrollTrigger);
     
-    new SplitType('.subtitle p')
+    new SplitType('.subtitle .subtitle-area p')
     
     
     gsap.to('.marquee', {
@@ -84,14 +84,6 @@
     .subtitle .char {
         opacity: 0.5;
         //transform: translateY(-100%);
-    }
-
-    @media (max-width: 767px) {
-        .subtitle .char {
-            opacity: 1;
-            color: var(--white) !important;
-            text-shadow: none;
-        }
     }
 </style>
 
