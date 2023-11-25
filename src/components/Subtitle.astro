@@ -33,7 +33,7 @@
         },
 
         opacity: 1,
-        stagger: 0.1,
+        stagger: 0.2,
         color: 'var(--white)',
         duration: 1
     })
@@ -49,7 +49,8 @@
         },
 
         opacity: 1,
-        scale: 300
+        scale: 300,
+        y: 0
     }).to('.subtitle p', {
         scrollTrigger: {
             trigger: '.subtitle',
@@ -82,6 +83,15 @@
 <style is:global>
     .subtitle .char {
         opacity: 0.5;
+        //transform: translateY(-100%);
+    }
+
+    @media (max-width: 767px) {
+        .subtitle .char {
+            opacity: 1;
+            color: var(--white) !important;
+            text-shadow: none;
+        }
     }
 </style>
 
@@ -121,7 +131,6 @@
         1px -1px 0 var(--white),
         -1px 1px 0 var(--white),
         1px 1px 0 var(--white);
-        
     }
     
     div {
