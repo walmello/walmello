@@ -26,11 +26,11 @@ const socialLinks = [
                 }
             </ul>    
         </div>
-        <div class="button">
+        <a href="https://calendly.com/walmello24/1h" class="button" target="_blank">
             <span>Schedule a call with me</span>
             <img src="./arrow.png" alt="">
             <div class="effect"></div>
-        </div>
+        </a>
     </div>
 </footer>
 
@@ -98,7 +98,7 @@ const socialLinks = [
                     position: absolute;
                     left: 0;
                     top: 0;
-                    //transform: translateY(100%);
+                    transform: translateY(100%);
                     z-index: -1;
                 }
                 
@@ -160,14 +160,14 @@ const socialLinks = [
     
     btn.addEventListener('mouseover', () => {
         tl.to('footer .button .effect', {
-            yPercent: 0,
+            y: 0,
             duration: 0.2
         })
     })
 
     btn.addEventListener('mouseout', () => {
         gsap.to('footer .button .effect', {
-            yPercent: 100,
+            y: 200,
             duration: 0.2
         })
     })

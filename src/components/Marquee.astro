@@ -46,7 +46,8 @@ const skills = ['Webflow', "Framer", "GSAP", "ThreeJS", "Javascript", "React", "
     tl.to('.marquee > *', {
         xPercent: -100,
         ease: 'none',
-        duration: 20
+        duration: 20,
+        overwrite: true
     })
 
     gsap.to('.marquee', {
