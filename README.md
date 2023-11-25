@@ -1,54 +1,73 @@
-# Astro Starter Kit: Basics
 
-```sh
-npm create astro@latest -- --template basics
-```
+![](./wm.design.svg "a title")
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+# Hi, I'm <br> <span>Walter Melo</span> <span class="hand">&#128075;</span> </h2>        
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## I’m a Front End Developer and Web Designer with 3 years of experience in building intuitive, pixel perfect websites with Webflow. I’m a Javascript specialist with knowledge on diverse development tools and programming languages.
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+I am a web developer and designer based in Brazil. I started developing at the age of 14 with RPG Maker.
+            
+Later, around 2017, I got into web development, starting with PHP and Wordpress.
+            
+Since 2021, I have been working with Webflow and have learned a lot more about design.
+            
+I strive to build websites that are not only functional but also visually appealing. Currently,
+            
+I am seeking a full-time position at an agency that values creative coding, where I can learn, grow, and specialize in this niche        
 
-## 🚀 Project Structure
+## My Skills.
 
-Inside of your Astro project, you'll see the following folders and files:
+### Development
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+- HTML/CSS
+- GSAP
+- ThreeJS
+- React
+- Javascript
+- Vue
+- NodeJS
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+#### And a little bit of
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- Python
+- PHP
+- Godot
+- C
 
-Any static assets, like images, can be placed in the `public/` directory.
+### not-so-common libraries and languages I'm looking into
 
-## 🧞 Commands
+- Alpine.js
+- Racket Programming Language
+- HTMX
 
-All commands are run from the root of the project, from a terminal:
+### Design and No-Code
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+- Figma
+- Webflow
+- Framer
+- GIMP
+- Krita
+- Inkscape
+- Illustrator
 
-## 👀 Want to learn more?
+#### No code tools I'm looking into
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- Dora
+- Spline
+- SVGator
+
+### Some Hobbies
+
+- Singing
+- Drawing
+- Game Development
+- Tinkering with exotic programming languages (like Racket)
+
+## Contact
+
+- [Website](https://waltermelo.design/)
+- [Linkedin](https://www.linkedin.com/in/walmello/)
+- [Twitter](https://twitter.com/waltermelo_)
+- [Dribbble](https://dribbble.com/walmello24)
+- [Webflow](https://webflow.com/@walmello)
+- [Framer Community](https://www.framer.community/u/864860dd)
