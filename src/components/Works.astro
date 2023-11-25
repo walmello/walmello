@@ -30,50 +30,23 @@ const works = [
 ---
 
 <section id="work">
-    <h2 class="flipped-header">WORK - WORK - WORK - WORK - WORK - WORK - </h2>
+    <h2 class="flipped-header">WORK - WORK - WORK - WORK - WORK - WORK - WORK - WORK - WORK - WORK</h2>
     <div class="works">
+        {works.map(work => 
         <div class="work-item">
-            <img src="./screenshots/eikon.png" alt="">
-            <h3>Eikon Labs</h3>
+            <a href={work.link} target="_blank">
+                <img src={"./screenshots/" + work.img} alt=""/>                
+            <h3>{work.title}</h3>
+            </a>
             <div class="tags">
-                <span>Webflow</span>
-                <span>Design</span>
-                <span>Javascript</span>
-            </div>        
-        </div>
-        <div class="work-item">
-            <img src="./screenshots/eikon.png" alt="">
-            <h3>Eikon Labs</h3>
-            <div class="tags">
-                <span>Webflow</span>
-                <span>Design</span>
-                <span>Javascript</span>
-            </div>        
-        </div>
-        <div class="work-item">
-            <img src="./screenshots/eikon.png" alt="">
-            <h3>Eikon Labs</h3>
-            <div class="tags">
-                <span>Webflow</span>
-                <span>Design</span>
-                <span>Javascript</span>
-            </div>        
-        </div>
-        <div class="work-item">
-            <img src="./screenshots/eikon.png" alt="">
-            <h3>Eikon Labs</h3>
-            <div class="tags">
-                <span>Webflow</span>
-                <span>Design</span>
-                <span>Javascript</span>
-            </div>        
-        </div>
-    </div>
+                {work.tags.map(tag => <span>{tag}</span>)}
+            </div>
+        </div>)}
 </section>
 
 <style lang="scss">
-
-
+    
+    
     .flipped-header {
         writing-mode: vertical-lr;
         font-size: max(10vw, 3rem);
@@ -81,13 +54,13 @@ const works = [
         font-weight: 700;
         color: var(--black);
         text-shadow:
-            -1px -1px 0 var(--white),  
-            1px -1px 0 var(--white),
-            -1px 1px 0 var(--white),
-            1px 1px 0 var(--white);
-
+        -1px -1px 0 var(--white),  
+        1px -1px 0 var(--white),
+        -1px 1px 0 var(--white),
+        1px 1px 0 var(--white);
+        
     }
-
+    
     .works {
         display: flex;
         height: 100vh;
@@ -95,26 +68,48 @@ const works = [
         align-items: center;
         top: 0;
         gap: 10vw;
-        transform: translateX(30vw);
+        transform: translateX(10vw);
     }
-
+    
     .tags {
         color: var(--main-color);
         display: flex;
         gap: 2rem;
         text-transform: uppercase;
     }
-
+    
     img {
-        width: 40vw;
+        width: 60vw;
     }
+    
+    @media (max-width: 640px) {
+        img {
+            width: 90vw !important;
+        }        
+        
+        .works {
+            flex-direction: column;
+            position: static;
+            transform: translateX(0vw);
+        }
 
+        #work {
+            flex-direction: column;
+        }
+
+        .flipped-header {
+            writing-mode: horizontal-tb;
+            position: sticky;
+            top: 10vh;
+        }
+    }
+    
     h3 {
-        font-size: 4vw;
+        font-size: max(4vw, 2.5rem);
         text-transform: uppercase;
         font-weight: 700;
     }
-
+    
     #work {
         max-width: 80vw;
         margin: auto;
@@ -127,19 +122,53 @@ const works = [
     import SplitType from 'split-type'
     import { ScrollTrigger } from "gsap/ScrollTrigger";
     gsap.registerPlugin(ScrollTrigger);   
-
+    
     const tl = gsap.timeline()
+    
+    
+    let mm = gsap.matchMedia();
+    
+    mm.add("(min-width: 767px)", () => {
+        tl.to('.works', {
+            scrollTrigger: {
+                trigger: '#work',
+                scrub: true,
+                start: 'top',
 
-    tl.to('.works', {
-        scrollTrigger: {
-            trigger: '#work',
-            scrub: true,
-            start: 'top'
-        },
-        xPercent: -100
+                onUpdate: self => {
+                let skewAmount = self.getVelocity() / 500
+                let scaleAmount = 1 + Math.abs(self.getVelocity() / 20000)
+
+                gsap.to('.work-item', {
+                    skewX: skewAmount,
+                    overwrite: true,
+                    ease: "back.out(1.7)"
+                })
+            }
+            },
+            xPercent: -100
+        })
     })
 
+    Array.from(document.querySelectorAll('.work-item img')).forEach(item => {
+        item.addEventListener("mouseover", () => {
+            gsap.to('.dot', {
+                scale: 10
+            })
+            gsap.to('.dot *', {
+                opacity: 1
+            })
+        })
+        item.addEventListener("mouseout", () => {
+            gsap.to('.dot', {
+                scale: 1
+            })
+            gsap.to('.dot *', {
+                opacity: 0
+            })
+        })
+    })
+    
 </script>
 
-    
-    
+

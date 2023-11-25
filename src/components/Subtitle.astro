@@ -101,19 +101,6 @@
         transform: scale(0.01);
     }
 
-    .marquee {
-        display: flex;
-        gap: 2rem;
-        position: sticky;
-        top: 80vh;
-        font-size: 7rem;
-        color: var(--main-color);
-        -webkit-text-stroke: 1px var(--main-color);
-                text-stroke: 1px var(--main-color);
-
-        z-index: -100;
-    }
-
     .subtitle-area {
         position: sticky;
         top: 20vh;
@@ -125,8 +112,8 @@
     }
     
     p {
-        font-size: 4vw;
-        max-width: 80vw;
+        font-size: max(4vw, 2.5rem);
+        width: 80vw;
         -webkit-text-stroke: 1px var(--white);
                 text-stroke: 1px var(--white);
         color: transparent;

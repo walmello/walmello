@@ -1,18 +1,26 @@
 <div class="cursor-area">
     <div class="dot-container">
         <div class="dot">
-            <span>VIEW SITE</span>
+            <img src="./arrow.png" alt="">
         </div>
     </div>
 </div>
 
 <style lang="scss">
+
+    @media (max-width: 767px) {
+        .cursor-area {
+            display: none;
+        }
+    }
+
     .cursor-area{
         height: 100vh;
         width: 100vw;
         position: fixed;
         pointer-events: none;
-
+        z-index: 99999;
+        
         .dot-container {
             position: absolute;
             top: 0;
@@ -26,15 +34,23 @@
                 display: flex;
                 justify-items: center;
                 align-items: center;
+                justify-content: center;
+                align-content: center;
                 text-align: center;
                 color: transparent;
+                position: relative;
 
+                * {
+                    opacity: 0;
+                    width: 50%;
+                }
+                
             }
-
+            
             .dot.open {
                 width: 10rem;
                 height: 10rem;
-
+                
                 span {
                     width: 100%;
                 }
@@ -46,7 +62,7 @@
 
 <script>
     import { gsap } from 'gsap'
-
+    
     window.addEventListener("mousemove", e => {        
         gsap.to('.dot-container', {
             x: e.clientX,
