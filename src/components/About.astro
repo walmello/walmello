@@ -1,46 +1,163 @@
 <section id="about">
-    <div>
-        <img src="/me-in-street.jpg" alt="">
+    <div class="my-image">
+        <img src="/me-in-street.png" alt="">
     </div>
-
-    <div>
-        <h2>Hi, I'm Walter</h2>
-
+    
+    <div class="about-text">
+        <h2>Hi, I'm <br> <span>Walter Melo</span> <span class="hand">&#128075;</span> </h2>        
         <p>
             I’m a web developer and designer based on Brazil.
-        </p>
-        
-        <p>
+            <br><br>
             I started to develop at my 14’s with RPG Maker then later around 2017 I got into Web, at first with PHP and Wordpress <br>
             Since 2021 I started to work with Webflow and learn a lot more about design, I strive to build websites with a bit of art in them. <br>
             Today I’m looking for a full position at an agency that values creative coding where I can learn, grow and specialize in this niche. <br>
         </p>    
-        <a href="#">view my resume -</a>
+        <a href="#">view my resume <img src="./arrow.png" alt=""></a>
     </div>
-
+    
 </section>
 
-<style>
+<script>
+    import { gsap } from "gsap/gsap-core";
+    import SplitType from "split-type";
+    
+    new SplitType('.about-text')
+    new SplitType('.about-text p')
+    
+    const tl = gsap.timeline()
+    
+    tl.to('.about-text h2 .char', {
+        stagger: 0.1,
+        y: 0,
+        skewX: 0,
+        duration: 0.4,
+        opacity: 1
+    })
+    
+    gsap.to('.about-text p .char', {
+        scrollTrigger: {
+            trigger: '.about-text',
+            scrub: true,
+            start: 'top',
+            end: 'center'
+        },
+        
+        opacity: 1,
+        stagger: 0.1,
+        color: 'var(--white)',
+        duration: 1
+    })
+
+    gsap.to('.my-image', {
+        scrollTrigger: {
+            trigger: '#about',
+            scrub: true,
+            start: 'top',
+            end: 'bottom'
+        },
+        x: 0,
+        scale: 1.5,
+    })
+    
+</script>
+
+<style is:global>
+    .about-text p .char {
+        color: var(--black);
+        text-shadow:
+        -1px -1px 0 var(--white),  
+        1px -1px 0 var(--white),
+        -1px 1px 0 var(--white),
+        1px 1px 0 var(--white);
+        opacity: 0.5;
+    }
+    
+    .about-text h2 .char {
+        transform: translateY(100%);
+        transform: skewX(-45deg);
+        opacity: 0;
+    }
+    
+    .about-text h2 {
+        overflow: hidden;
+    }
+</style>
+
+<style lang="scss">
+    
+    .my-image {
+        position: sticky;
+        top: 10vw;
+        display: flex;
+        justify-content: center;
+        align-items: end;
+        background-color: var(--main-color);
+        border-radius: 100%;
+        overflow: hidden;
+        width: 20vw;
+        height: 20vw;
+    }    
+    
+    a {
+        margin-top: 4rem;
+        border: 2px solid var(--white);
+        padding: 1rem;
+        border-radius: 999px;
+    }
+    
+    a:hover {
+        border: 2px solid var(--main-color);
+    }
+    
+    a img {
+        width: 1ch;
+    }
+    
+    
     section {
         display: flex;
         min-height: 200vh;
         justify-content: center;
-        align-items: center;
+        align-items: start;
         max-width: 80vw;
         gap: 2rem;
         margin: auto;
     }
-
+    
     h2 {
-        font-size: 4vw;
+        font-size: 7vw;
+        text-wrap: nowrap;
     }
-
+    
+    h2 span {
+        color: var(--main-color);
+    }
+    
     p {
-        font-size: 2vw;
-        max-width: 1200px;
+        //max-width: 1200px;
+        font-size: max(3vw, 2.5rem);
+    }
+    
+    img {
+        width: 100%;
     }
 
-    img {
-        max-width: 600px;
-    }
+    @media (max-width: 767px) {
+        section {
+            flex-direction: column;
+        }
+
+        img {
+        }
+        h2 {
+            font-size: 12vw;
+            text-wrap: nowrap;
+        }
+
+        .my-image {
+            width: 80vw;
+            height: 80vw;
+            top: 20vh;
+        }
+    }    
 </style>

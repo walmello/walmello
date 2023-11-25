@@ -31,8 +31,8 @@ const { delay } = Astro.props
     
     @media (max-width: 767px) {
         .logo {
-            font-size: 2rem;
-            transform: translateY(-50%);
+            font-size: 18vw;
+            transform: translateY(15%);
         }
     }
     
@@ -62,7 +62,21 @@ const { delay } = Astro.props
             ease: "none"
         }) 
     })
-    
+
+    mm.add("(max-width: 767px)", () => {
+        gsap.to('.logo', {
+            scrollTrigger: {
+                scrub: true,
+                start: 'center',
+                trigger: 'header'
+            },        
+            fontSize: '10vw',
+            yPercent: -50,
+            ease: "none"
+        }) 
+    })
+
+
     window.onresize = () => {
         mm.add("(min-width: 767px)", () => {
             gsap.to('.logo', {

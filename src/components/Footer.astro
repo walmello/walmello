@@ -1,9 +1,177 @@
+---
+const socialLinks = [
+{
+    link: 'https://www.linkedin.com/in/walmello/',
+    icon: 'linkedin.svg'
+}
+]
+---
+
 <footer>
-    <h2>Contact</h2>
-    <ul>
-        <li><a href="#">Github</a></li>
-        <li><a href="#">Dribble</a></li>
-        <li><a href="#">Linkedin</a></li>
-        <li><a href="#">Twitter</a></li>
-    </ul>
+    <h2 class="">
+        <span>Contact - Contact - Contact - Contact - Contact - Contact - Contact</span>
+        <span>Contact - Contact - Contact - Contact - Contact - Contact - Contact</span>
+        <span>Contact - Contact - Contact - Contact - Contact - Contact - Contact</span>
+        <span>Contact - Contact - Contact - Contact - Contact - Contact - Contact</span>
+        <span>Contact - Contact - Contact - Contact - Contact - Contact - Contact</span>
+    </h2>
+    <div>
+        <div class="social">
+            <h3>Social Links</h3>
+            <ul>
+                {
+                    socialLinks.map(item => 
+                    <li><a href={item.link}><img src={"./social-icons/" + item.icon} alt=""/></a></li>
+                    )
+                }
+            </ul>    
+        </div>
+        <div class="button">
+            <span>Schedule a call with me</span>
+            <img src="./arrow.png" alt="">
+            <div class="effect"></div>
+        </div>
+    </div>
 </footer>
+
+<style lang="scss">
+    h2 {
+        font-size: max(10vw, 3rem);
+        text-wrap: nowrap;
+        font-weight: 700;
+        color: var(--black);
+        text-shadow:
+        -1px -1px 0 var(--white),  
+        1px -1px 0 var(--white),
+        -1px 1px 0 var(--white),
+        1px 1px 0 var(--white);
+    }
+    
+    footer {
+        padding-top: 10vw;
+        display: flex;
+        gap: 10vw;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding-bottom: 10vw;
+        
+        h3 {
+            font-size: max(5vw, 5rem);
+            margin-bottom: 2rem;
+        }
+        
+        ul {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+        }
+        
+        > div {
+            width: 80vw;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+            .button {
+                display: flex;
+                gap: 1rem;
+                align-items: center;
+                font-size: max(2vw, 2rem);
+                border: 2px solid var(--white);
+                border-radius: 999px;
+                padding: 2vw;
+                color: var(--white);
+                position: relative;
+                overflow: hidden;
+
+                span, img {
+                    mix-blend-mode: difference;
+                }
+                
+                
+                .effect {
+                    background-color: var(--white);
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    //transform: translateY(100%);
+                    z-index: -1;
+                }
+                
+                img {
+                    width: 2vw;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 1000px) {
+        footer {
+            height: auto;
+        }
+
+        footer > div {
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            
+            width: auto;
+            max-width: 80vw;
+            width: 100vw;
+
+            .social {
+                width: 100%;
+                margin-bottom: 10vw;
+            }
+        } 
+
+        h3 {
+            font-size: 2rem !important;
+            margin-bottom: 2rem;
+        }
+
+        .button {
+            font-size: 1rem !important;
+            padding: 1rem !important;
+            width: 100%;
+            justify-content: center;
+
+            img {
+                width: 1rem !important;
+            }
+        }
+
+        a img {
+            width: 3rem !important;
+        }
+    }
+</style>
+
+<script>
+    import {gsap} from "gsap";
+    
+    const btn = document.querySelector('footer .button')
+
+    const tl = gsap.timeline()
+    
+    btn.addEventListener('mouseover', () => {
+        tl.to('footer .button .effect', {
+            yPercent: 0,
+            duration: 0.2
+        })
+    })
+
+    btn.addEventListener('mouseout', () => {
+        gsap.to('footer .button .effect', {
+            yPercent: 100,
+            duration: 0.2
+        })
+    })
+    
+
+    
+</script>
