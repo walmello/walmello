@@ -50,19 +50,6 @@ I am seeking a full-time position at an agency that values creative coding, wher
 - Inkscape
 - Illustrator
 
-#### No code tools I'm looking into
-
-- Dora
-- Spline
-- SVGator
-
-### Some Hobbies
-
-- Singing
-- Drawing
-- Game Development
-- Tinkering with exotic programming languages (like Racket)
-
 ## Contact
 
 - [Website](https://waltermelo.design/)

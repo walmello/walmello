@@ -2,15 +2,18 @@
 const socialLinks = [
 {
     link: 'https://www.linkedin.com/in/walmello/',
-    icon: 'linkedin.svg'
+    icon: 'linkedin.svg',
+    label: 'Linkedin icon'
 },
 {
     link: 'https://dribbble.com/walmello24',
-    icon: 'dribbble.svg'
+    icon: 'dribbble.svg',
+    label: 'Dribbble icon'
 },
 {
     link: 'https://github.com/walmello/walmello',
-    icon: 'github.svg'
+    icon: 'github.svg',
+    label: 'Github icon'
 },
 ]
 ---
@@ -29,7 +32,7 @@ const socialLinks = [
             <ul>
                 {
                     socialLinks.map(item => 
-                    <li><a href={item.link}><img src={"./social-icons/" + item.icon} alt=""/></a></li>
+                    <li><a href={item.link} aria-label={item.label}><img src={"./social-icons/" + item.icon} alt=""/></a></li>
                     )
                 }
             </ul>    
